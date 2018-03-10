@@ -142,6 +142,7 @@ class LagrangeMessageListener extends ListenerAdapter {
                     File imgFile = new File("src/main/resources/ss.png");
                     ImageIO.write(img, "png", imgFile);
                     channel.sendFile(imgFile).queue();
+                    imgFile.delete();
                 } catch (AWTException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -177,6 +178,7 @@ class LagrangeMessageListener extends ListenerAdapter {
                                 File f = new File("src/main/resources/color.png");
                                 ImageIO.write(img, "png", f);
                                 channel.sendFile(f).queue();
+                                f.delete();
                                 i+=2;
                                 break;
 
