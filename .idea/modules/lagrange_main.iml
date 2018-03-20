@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module external.linked.project.id="lagrange:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="com.lutalica" external.system.module.type="sourceSet" external.system.module.version="0.0" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <output url="file://$MODULE_DIR$/../../build/classes/main" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
@@ -10,6 +10,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: net.dv8tion:JDA:3.5.1_347" level="project" />
+    <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath:1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.commons:commons-collections4:4.1" level="project" />
@@ -18,6 +19,8 @@
     <orderEntry type="library" name="Gradle: net.java.dev.jna:jna:4.4.0" level="project" />
     <orderEntry type="library" name="Gradle: com.neovisionaries:nv-websocket-client:2.2" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.8.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath-font-greek:1.0.6" level="project" />
+    <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath-font-cyrillic:1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0" level="project" />
   </component>
 </module>

@@ -3,15 +3,22 @@ import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import org.scilab.forge.jlatexmath.DefaultTeXFont;
+import org.scilab.forge.jlatexmath.TeXConstants;
+import org.scilab.forge.jlatexmath.TeXFormula;
+import org.scilab.forge.jlatexmath.TeXIcon;
+import org.scilab.forge.jlatexmath.cyrillic.CyrillicRegistration;
+import org.scilab.forge.jlatexmath.greek.GreekRegistration;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
 
 import javax.imageio.ImageIO;
 import javax.security.auth.login.LoginException;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.InputEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +53,6 @@ class LagrangeMessageListener extends ListenerAdapter {
         MessageChannel channel = event.getChannel();
 
         String msg = message.getContentDisplay();
-        System.out.println(msg);
 
         boolean bot = author.isBot();
 
@@ -228,6 +234,13 @@ class LagrangeMessageListener extends ListenerAdapter {
             if (msg.toLowerCase().matches("a+")) {
                 String send = message.getContentDisplay();
                 channel.sendMessage("`"+send+send+"~`").queue();
+            }
+
+            if (msg.contains("math")) {
+                String latex = msg.substring(5);
+                TeXFormula formula = new TeXFormula(latex);
+                formula.createPNG(TeXFormula.SERIF, 200, "src/main/resources/tex.png", Color.WHITE, Color.BLACK);
+                channel.sendFile(new File("src/main/resources/tex.png")).queue();
             }
 
         }

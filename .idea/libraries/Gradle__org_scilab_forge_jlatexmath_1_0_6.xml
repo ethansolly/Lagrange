@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.scilab.forge:jlatexmath:1.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.scilab.forge/jlatexmath/1.0.6/91eb47098174a4645f48abafac2e227bdf8fd605/jlatexmath-1.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.scilab.forge/jlatexmath/1.0.6/b9bb64386b24a4fe83fc0c578939291438fbf3a5/jlatexmath-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
