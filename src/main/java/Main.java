@@ -21,6 +21,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -60,21 +61,15 @@ class LagrangeMessageListener extends ListenerAdapter {
             msg = msg.substring(0, msg.length()-1);
             //Channel
             if (event.isFromType(ChannelType.TEXT)) {
-                Guild guild = event.getGuild();
-                TextChannel textChannel = event.getTextChannel();
-                Member member = event.getMember();
+                    Guild guild = event.getGuild();
+                    TextChannel textChannel = event.getTextChannel();
+                    Member member = event.getMember();
 
-                String name;
-                if (message.isWebhookMessage())
-                    name = author.getName();
-                else
-                    name = member.getEffectiveName();
-
-
-
-
-
-
+                    String name;
+                    if (message.isWebhookMessage())
+                        name = author.getName();
+                    else
+                        name = member.getEffectiveName();
             }
 
             //Group
@@ -141,7 +136,9 @@ class LagrangeMessageListener extends ListenerAdapter {
                 }
             }
 
-            if (msg.startsWith("postcard")) { //Screenshot time!
+            //ALL
+
+            if (msg.startsWith("postcard") || msg.startsWith("pc")) { //Screenshot time!
                 try {
                     Rectangle screen = new Rectangle(Toolkit.getDefaultToolkit().getScreenSize());
                     BufferedImage img = new Robot().createScreenCapture(screen);
@@ -210,8 +207,7 @@ class LagrangeMessageListener extends ListenerAdapter {
                 }
             }
 
-            //All
-            if (msg.contains("ping")) {
+            if (msg.startsWith("ping")) {
                 channel.sendMessage("`ping~`").queue();
             }
 
@@ -236,11 +232,79 @@ class LagrangeMessageListener extends ListenerAdapter {
                 channel.sendMessage("`"+send+send+"~`").queue();
             }
 
-            if (msg.contains("math")) {
+            if (msg.startsWith("math")) {
                 String latex = msg.substring(5);
                 TeXFormula formula = new TeXFormula(latex);
                 formula.createPNG(TeXFormula.SERIF, 200, "src/main/resources/tex.png", Color.WHITE, Color.BLACK);
                 channel.sendFile(new File("src/main/resources/tex.png")).queue();
+            }
+
+            if (msg.startsWith("help")) {
+                channel.sendMessage("`no u`").queue();
+            }
+
+            if (msg.startsWith("no u")) {
+                String help = "";
+                help += "```python\n";
+
+                help += "\n\nChannel-Specific Commands\n\n";
+
+                help += "\n\nGroup-Specific Commands\n\n";
+
+                help += "\n\nDM-Specific Commands\n\n";
+
+                help += "who am i~\n";
+
+                help += "# DETAILS: Gives information pertaining to the sender\n";
+
+                help += "# USAGE: who am i~\n";
+
+                help += "who is~\n";
+
+                help += "# DETAILS: Gives information pertaining to another user\n";
+
+                help += "# USAGE: who is \"[USERNAME]\"~\n";
+
+                help += "slide~\n";
+
+                help += "# DETAILS: Sends an anonymous message to another user\n";
+
+                help += "# USAGE: slide \"[MESSAGE]\" to \"[USER]\"~\n";
+
+                help += "\n\nNon-Specific Commands\n\n";
+
+                help += "ping~\n";
+
+                help += "# DETAILS: Ping but every time it says ping it pongs\n";
+
+                help += "# USAGE: ping~\n";
+
+                help += "postcard~ OR pc~\n";
+
+                help += "# DETAILS: Sends a current screenshot of the computer running the bot\n";
+
+                help += "# USAGE: postcard~ OR pc~\n";
+
+                help += "run~\n";
+
+                help += "# DETAILS: Runs a program on the computer running the bot\n";
+
+                help += "# USAGE: run \"[PROGRAM]\"~\n";
+
+                help += "beepboop~ OR bb~\n";
+
+                help += "# DETAILS: Creates a Robot to control the mouse and keyboard\n";
+
+                help += "# USAGE: beepboop [CODES]~\n";
+
+                help += "math~\n";
+
+                help += "# DETAILS: Prints an image from a LATex math expression\n";
+
+                help += "# USAGE: math [EXPRESSION]~\n";
+
+                help += "```";
+                channel.sendMessage(help).queue();
             }
 
         }
