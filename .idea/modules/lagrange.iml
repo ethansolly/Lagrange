@@ -9,5 +9,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="MathParser.org-mXparser-jdk18-4.1.1" level="project" />
   </component>
 </module>

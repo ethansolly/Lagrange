@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="MathParser.org-mXparser-jdk18-4.1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/MathParser.org-mXparser-jdk18-4.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -22,5 +22,6 @@
     <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath-font-greek:1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: org.scilab.forge:jlatexmath-font-cyrillic:1.0.6" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.13.0" level="project" />
+    <orderEntry type="library" name="MathParser.org-mXparser-jdk18-4.1.1" level="project" />
   </component>
 </module>

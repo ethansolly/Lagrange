@@ -1,8 +1,11 @@
+import javafx.beans.binding.DoubleExpression;
 import net.dv8tion.jda.client.entities.Group;
 import net.dv8tion.jda.core.*;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import org.mariuszgromada.math.mxparser.Argument;
+import org.mariuszgromada.math.mxparser.Expression;
 import org.scilab.forge.jlatexmath.DefaultTeXFont;
 import org.scilab.forge.jlatexmath.TeXConstants;
 import org.scilab.forge.jlatexmath.TeXFormula;
@@ -237,6 +240,13 @@ class LagrangeMessageListener extends ListenerAdapter {
                 TeXFormula formula = new TeXFormula(latex);
                 formula.createPNG(TeXFormula.SERIF, 200, "src/main/resources/tex.png", Color.WHITE, Color.BLACK);
                 channel.sendFile(new File("src/main/resources/tex.png")).queue();
+            }
+
+            if (msg.startsWith("eval")) {
+                String mafs = msg.substring(5);
+                Expression exp = new Expression(mafs);
+                double ans = exp.calculate();
+                channel.sendMessage(exp.getExpressionString() + ((ans != Double.NaN)? " = " + Double.toString(ans) : "")).queue();
             }
 
             if (msg.startsWith("help")) {
